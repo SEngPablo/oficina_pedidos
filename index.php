@@ -17,12 +17,8 @@
     </form>
     <hr>
 
-<div
-    class="table-responsive"
->
-    <table
-        class="table table-primary"
-    >
+<div class="table-responsive">
+    <table class="table table-primary">
         <thead>
             <tr>
                 <th scope="col">Data</th>
@@ -44,9 +40,14 @@
                 </td>
             </tr>
             <tr class="">
-                <td scope="row">Item</td>
-                <td>Item</td>
-                <td>Item</td>
+            <td scope="row">23/11/2023</td>
+                <td>José</td>
+                <td>Mesa</td>
+                <td>R$ 23,00</td>
+                <td>
+                    <a name="editar" id="editar" class="btn btn-warning" href="#" role="button">Editar</a>
+                    <a name="excluir" id="excluir" class="btn btn-danger" href="#" role="button">Excluir</a>
+                </td>
             </tr>
 
     <?php
@@ -55,8 +56,13 @@
     $dbname = 'pedidos';
     $username = 'root';
     $password = '';
+
+    try {
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    } catch (PDOException $e) {
+        die ("Erro ao conectar ao banco de dados:".$e->getMessage());
+    }
     ?>
-    
         </tbody>
     </table>
 
