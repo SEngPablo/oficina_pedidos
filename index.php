@@ -28,27 +28,8 @@
                 <th scope="col">Ações</th>
             </tr>
         </thead>
-        <tbody>
-            <tr class="">
-                <td scope="row">23/11/2023</td>
-                <td>José</td>
-                <td>Mesa</td>
-                <td>R$ 23,00</td>
-                <td>
-                    <a name="editar" id="editar" class="btn btn-warning" href="#" role="button">Editar</a>
-                    <a name="excluir" id="excluir" class="btn btn-danger" href="#" role="button">Excluir</a>
-                </td>
-            </tr>
-            <tr class="">
-            <td scope="row">23/11/2023</td>
-                <td>José</td>
-                <td>Mesa</td>
-                <td>R$ 23,00</td>
-                <td>
-                    <a name="editar" id="editar" class="btn btn-warning" href="#" role="button">Editar</a>
-                    <a name="excluir" id="excluir" class="btn btn-danger" href="#" role="button">Excluir</a>
-                </td>
-            </tr>
+
+    <tbody>    
 
     <?php
     //Conecta ao banco de dados por PDO
@@ -62,8 +43,29 @@
     } catch (PDOException $e) {
         die ("Erro ao conectar ao banco de dados:".$e->getMessage());
     }
+
+    //Selecionar os dados da tabela pedidos  
+
+    $sql = "SELECT * FROM pedidos";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+
+    //Exibe os pedidos em uma tabela
+
+    while ($row=$stmt->fetch()) {
+        echo "<tr>";
+        echo "<td>".$row['data']."</td>";
+        echo "<td>".$row['cliente']."</td>";
+        echo "<td>".$row['produto']."</td>";
+        echo "<td>".$row['valor']."</td>";
+        echo "</tr>";
+    }
     ?>
-        </tbody>
+
+        <a name='editar' id='editar' class='btn btn-warning' href='editar.php?id=' role='button1'>Editar</a>
+        <a name='excluir' id='excluir' class='btn btn-danger' href='excluir.php?id=' role='button2'>Excluir</a>
+
+    </tbody>
     </table>
 
 </div>    
