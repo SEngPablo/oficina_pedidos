@@ -1,0 +1,23 @@
+.salvar {
+    background: linear-gradient(to right,  #20738f, #20afdf, #20738f);
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px 12px 5px 12px;
+    display: block;
+    color: white;
+    justify-content: center;
+    text-transform: capitalize;
+}
+
+.divsalvar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.salvar:hover {
+    background: linear-gradient(to right, #12b7ee, #2c97ba, #12b7ee);
+    color: white;
+}
+

@@ -13,7 +13,7 @@
         <label for="cliente">Cliente: </label><input type="text" name="cliente" id="cliente">
         <label for="produto">Produto: </label><input type="text" name="produto" id="produto">
         <label for="valor">Valor: </label><input type="number" name="valor" id="valor">
-        <input type="submit" value="Salvar">
+        <div class="divsalvar"><input type="submit" value="Salvar" class="salvar"></div>
     </form>
     <hr>
 
@@ -29,7 +29,7 @@
             </tr>
         </thead>
 
-    <tbody>    
+        <tbody>    
 
     <?php
     //Conecta ao banco de dados por PDO
@@ -49,25 +49,24 @@
     $sql = "SELECT * FROM pedidos";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-
+    
     //Exibe os pedidos em uma tabela
-
     while ($row=$stmt->fetch()) {
         echo "<tr>";
         echo "<td>".$row['data']."</td>";
         echo "<td>".$row['cliente']."</td>";
         echo "<td>".$row['produto']."</td>";
         echo "<td>".$row['valor']."</td>";
+        echo "<td>";
+        echo "<a href='editar.php?id=".$row['id']."'>Editar</a>";
+        echo "<a href='excluir.php?id=".$row['id']."'>Excluir</a>";  
+        echo "</td>";
         echo "</tr>";
     }
     ?>
 
-        <a name='editar' id='editar' class='btn btn-warning' href='editar.php?id=' role='button1'>Editar</a>
-        <a name='excluir' id='excluir' class='btn btn-danger' href='excluir.php?id=' role='button2'>Excluir</a>
-
-    </tbody>
+        </tbody>
     </table>
-
 </div>    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
