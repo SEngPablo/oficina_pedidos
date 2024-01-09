@@ -3,14 +3,14 @@
     border-radius: 10px;
     border: 0px;
     padding: 5px 12px 5px 12px;
-    display: block;
+    display: inline-block;
     color: white;
     justify-content: center;
     text-transform: capitalize;
 }
 
-.divsalvar {
-    display: flex;
+.containersalvar {
+    display: inline-block;
     justify-content: center;
     text-align: center;
     margin-top: 10px;
@@ -21,8 +21,10 @@
     color: white;
 }
 
+
 .heditar {
     background: #20738f;
     color: bisque;
-    width: 45%;
-}
+    width: 100%;
+    text-align: center;
+    }

@@ -12,18 +12,19 @@
 <body>
     <h1>Meus Pedidos</h1>
     <form action="salvar.php" method="post">
+    <div class="containersalvar">
         <label for="data" class="form-label">Data: </label><input type="datetime-local" name="data" id="data">
         <label for="cliente">Cliente: </label><input type="text" name="cliente" id="cliente">
         <label for="produto">Produto: </label><input type="text" name="produto" id="produto">
         <label for="valor">Valor: </label><input type="number" name="valor" id="valor">
-        <div class="divsalvar"><input type="submit" value="Salvar" class="salvar"></div>
+        <input type="submit" value="Salvar" class="salvar"></div>
     </form>
     <hr>
 
     <div
     class="table-responsive">
     <table
-        class="table table-primary">
+        class="table table-light table-striped table-hover">
         <thead>
             <tr>
                 <th scope="col">Data</th>
@@ -57,23 +58,13 @@
                 echo "<td>".$row['produto']."</td>";
                 echo "<td>".$row['valor']."</td>";
                 echo "<td>";
-                echo "<a href='editar.php?id=".$row['id']."'>Editar</a>";
-                echo "<a href='excluir.php?id=".$row['id']."'>Excluir</a>";
+                echo "<a href='editar.php?id=".$row['id']."'class='btn btn-warning'''>Editar</a>";
+                echo "<a href='excluir.php?id=".$row['id']."'class='btn btn-danger'''>Excluir</a>";
                 echo "</td>";
                 echo "</tr>";
             }
             ?>
            
-    <!-- 
-           <td>
-               <a name='editar' id='editar' class='btn btn-warning' href='editar.php?id=' role='button1'>Editar</a>;
-               <a name="excluir" id="excluir" class="btn btn-danger" href="#" role="button">Excluir</a>
-            </td>
-            <tr class="">
-                <td scope="row">Item</td>
-                <td>Item</td>
-                <td>Item</td>
-            </tr> -->
         </tbody>
     </table>
     </div>
